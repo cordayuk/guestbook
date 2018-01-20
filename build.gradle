@@ -24,12 +24,10 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-devtools")
-    compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.0.2.RELEASE'
-    compile group: 'org.springframework', name: 'spring-hibernate', version: '1.2.9'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.5.9.RELEASE'
     compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
     compile group: 'com.h2database', name: 'h2', version: '1.4.196'
-    compile group: 'org.springframework', name: 'spring-orm', version: '5.0.2.RELEASE'
-    compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.0.Final'
+    compile 'org.hibernate:hibernate-entitymanager:4.3.8.Final'
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 

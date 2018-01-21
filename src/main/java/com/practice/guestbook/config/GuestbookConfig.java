@@ -1,18 +1,17 @@
 package com.practice.guestbook.config;
 
-import org.apache.commons.dbcp.BasicDataSource;
-import org.apache.tomcat.jdbc.pool.DataSource;
+import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 import java.util.Properties;
+import javax.sql.DataSource;
 
 
 @Configuration
@@ -25,7 +24,7 @@ public class GuestbookConfig {
 
     @Bean
     public DataSource dataSource() {
-    DataSource dataSource = new DataSource();
+    BasicDataSource dataSource = new BasicDataSource();
     dataSource.setDriverClassName(env.getProperty("db.driver"));
     dataSource.setUrl(env.getProperty("db.url"));
     dataSource.setUsername(env.getProperty("db.user"));
@@ -35,13 +34,13 @@ public class GuestbookConfig {
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 
-        HibernateJpaVendorAdapter vendor = new HibernateJpaVendorAdapter();
+        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 
         factory.setDataSource(dataSource());
-        factory.setJpaVendorAdapter(vendor);
+        factory.setJpaVendorAdapter(vendorAdapter);
         factory.setPackagesToScan(env.getProperty("guestbook.entity.package"));
         factory.setJpaProperties(getHibernateProperties());
 

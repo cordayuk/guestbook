@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/layout.css}" />
+    <title>Post a Message</title>
 </head>
 <body>
+<div class="fixed-navbar">
+    <nav>
+        <div class="site-name"><a href="/">Guestbook</a></div>
+        <div class="post-a-message">
+            <a href="/post">Post a Message</a>
+        </div>
+    </nav>
+</div>
+<div class="form-container">
+    <div class="form-title">
+        <h2>Post a Message</h2>
+    </div>
+    <div class="form-details">
+        <form method="post" action="/post" th:object="${message}">
+            <h3>Name</h3>
+                <input type="text" value="" th:field="*{posterName}"/>
+            <h3>Message</h3>
+                <input class="message-input" type="text" value="" th:field="*{posterMessage}"/>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

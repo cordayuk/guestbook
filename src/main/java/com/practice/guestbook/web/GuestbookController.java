@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -31,12 +32,13 @@ public class GuestbookController {
         if(!model.containsAttribute("message")){
             model.addAttribute("message", new Message());
         }
+
         return "form";
     }
 
     // Receives HTTP post data to create and save new message, provided it is valid
     @RequestMapping(value = "/post", method = RequestMethod.POST)
-    public String receivePost(@Valid Message message, BindingResult result, RedirectAttributes redirect) {
+    public String receivePost(@Valid @ModelAttribute Message message, BindingResult result, RedirectAttributes redirect) {
         if(result.hasErrors()){
             redirect.addFlashAttribute("org.springframework.validation.BindingResult.message" ,result);
             redirect.addFlashAttribute("message", message);

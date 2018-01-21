@@ -1,11 +1,14 @@
 package com.practice.guestbook.model;
 
+import org.springframework.format.datetime.DateFormatter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Entity
@@ -20,7 +23,7 @@ public class Message {
     private LocalDate postDate = LocalDate.now();
 
     @Size(max = 180)
-    private String message;
+    private String posterMessage;
 
     public Message() {
     }
@@ -41,12 +44,11 @@ public class Message {
         this.posterName = posterName;
     }
 
-    public String getMessage() {
-        return message;
+    public String getPosterMessage() { return posterMessage;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setPosterMessage(String posterMessage) {
+        this.posterMessage = posterMessage;
     }
 
     public LocalDate getPostDate() {

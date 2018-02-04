@@ -49,6 +49,16 @@
   padding: 20px;
 }
 
+.container .error-h1 {
+    text-align: center;
+    width: 100%;
+}
+
+.container .error-h2 {
+    text-align: center;
+    width: 100%;
+}
+
 .container h2 {
   font-family: mrsSheppards;
   font-size: 40px;

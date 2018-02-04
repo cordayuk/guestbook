@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+  </head>
+  <body>
+     <div class="fixed-navbar" th:fragment="nav-bar">
+       <nav>
+         <a href="/" class="site-name">Guestbook</a>
+         <a href="/post" class="post-a-message">Post a Message</a>
+       </nav>
+     </div>
+  </body>
+</html>

@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
     <title>Error</title>
 </head>
 <body>
-<h1>THERE WAS AN ERROR! OH NO!</h1>
-<a href="/"><h2>Back to Home Page</h2></a>
-
+  <div th:replace="nav-bar :: nav-bar">
+  </div>
+  <div class="container">
+    <h1 class="error-h1">THERE WAS AN ERROR! OH NO!</h1>
+    <a href="/"><h2 class="error-h2">Back to Home Page</h2></a>
+  </div>
 </body>
 </html>

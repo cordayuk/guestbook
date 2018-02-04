@@ -5,14 +5,25 @@ import com.practice.guestbook.model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.*;
+
+
 @Service
 public class MessageServiceImpl implements MessageService {
     @Autowired
     private MessageDao messageDao;
 
     @Override
-    public Iterable<Message> findAll() {
-        return messageDao.findAll();
+    public List<Message> findAll() {
+        Iterable<Message> messages = messageDao.findAll();
+        List<Message> allMessages = new ArrayList<>();
+
+        for(Message m : messages){
+            allMessages.add(m);
+        }
+        Collections.sort(allMessages);
+
+        return allMessages;
     }
 
     @Override

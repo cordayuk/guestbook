@@ -28,9 +28,9 @@
                 <th class="message-header">Message</th>
             </tr>
             <tr th:each="message : ${messages}" class="message">
-                <td th:text="${message.postDate}" class="message-date">12/12/1234 12:12</td>
-                <td th:text="${message.posterName}" class="message-posterName">Chris</td>
-                <td th:text="${message.posterMessage}" class="message-message">HI How are you?</td>
+                <td th:text="${#temporals.format(message.postDate, 'dd-MM-yyyy HH:mm')}" class="message-date"></td>
+                <td th:text="${message.posterName}" class="message-posterName"></td>
+                <td th:text="${message.posterMessage}" class="message-message"></td>
             </tr>
         </table>
     </div>

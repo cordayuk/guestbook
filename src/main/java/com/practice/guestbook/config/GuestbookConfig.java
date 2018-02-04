@@ -9,6 +9,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 
 import java.util.Properties;
 import javax.sql.DataSource;
@@ -57,6 +58,11 @@ public class GuestbookConfig {
         properties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
 
         return properties;
+    }
+
+    @Bean
+    public Java8TimeDialect java8TimeDialect(){
+        return new Java8TimeDialect();
     }
 
 }

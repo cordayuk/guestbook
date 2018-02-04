@@ -2,6 +2,8 @@ package com.practice.guestbook.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
@@ -21,6 +23,8 @@ public class TemplateConfig {
     public SpringTemplateEngine templateEngine() {
         final SpringTemplateEngine springTemplateEngine = new SpringTemplateEngine();
         springTemplateEngine.addTemplateResolver(templateResolver());
+        springTemplateEngine.addDialect(new Java8TimeDialect());
+
         return springTemplateEngine;
     }
 
@@ -31,4 +35,5 @@ public class TemplateConfig {
         viewResolver.setOrder(1);
         return viewResolver;
     }
+
 }

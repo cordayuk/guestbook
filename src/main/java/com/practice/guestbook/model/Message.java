@@ -8,11 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Entity
-public class Message {
+public class Message implements Comparable<Message>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -20,7 +21,7 @@ public class Message {
     @Size(max = 30)
     private String posterName;
 
-    private LocalDate postDate = LocalDate.now();
+    private LocalDateTime postDate = LocalDateTime.now();
 
     @Size(max = 180)
     private String posterMessage;
@@ -51,11 +52,24 @@ public class Message {
         this.posterMessage = posterMessage;
     }
 
-    public LocalDate getPostDate() {
+    public LocalDateTime getPostDate() {
         return postDate;
     }
 
-    public void setPostDate(LocalDate postDate) {
+    public void setPostDate(LocalDateTime postDate) {
         this.postDate = postDate;
+    }
+
+    @Override
+    public int compareTo(Message o) {
+        if(postDate.isAfter(o.getPostDate())){
+            return -1;
+        }
+        else if(postDate.equals(o.getPostDate())){
+            return 0;
+        }
+        else
+            return 1;
+
     }
 }

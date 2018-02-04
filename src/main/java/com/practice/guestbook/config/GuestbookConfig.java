@@ -30,7 +30,6 @@ public class GuestbookConfig {
     dataSource.setUrl(env.getProperty("db.url"));
     dataSource.setUsername(env.getProperty("db.user"));
     dataSource.setPassword(env.getProperty("db.password"));
-
         return dataSource;
     }
 

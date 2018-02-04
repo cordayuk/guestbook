@@ -3,29 +3,42 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" th:href="@{/css/layout.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}" />
     <title>Post a Message</title>
 </head>
 <body>
 <div class="fixed-navbar">
     <nav>
-        <div class="site-name"><a href="/">Guestbook</a></div>
-        <div class="post-a-message">
-            <a href="/post">Post a Message</a>
-        </div>
+        <a href="/" class="site-name">Guestbook</a>
+        <a href="/post" class="post-a-message">Post a Message</a>
     </nav>
 </div>
-<div class="form-container">
+<div class="container">
     <div class="form-title">
         <h2>Post a Message</h2>
     </div>
     <div class="form-details">
         <form method="post" action="/post" th:object="${message}">
-            <h3>Name</h3>
-                <input type="text" value="" th:field="*{posterName}"/>
-            <h3>Message</h3>
-                <input class="message-input" type="text" value="" th:field="*{posterMessage}"/>
+          <div class="row">
+            <div class="col-25">
+              <label>Name</label>
+            </div>
+            <div class="col-75">
+              <input type="text" value="" th:field="*{posterName}"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+              <label>Message</label>
+            </div>
+            <div class="col-75">
+              <textarea class="message-input" th:field="*{posterMessage}"></textarea>
+            </div>
+          </div>
+          <div class="row">
             <input type="submit" value="Submit" />
+          </div>
         </form>
     </div>
 </div>

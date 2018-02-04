@@ -1,0 +1,97 @@
+/* set fonts */
+@font-face {
+  font-family: mrsSheppards;
+  src: url(fonts/MrsSheppards-Regular.ttf);
+}
+
+@font-face {
+  font-family: openSans;
+  src: url(fonts/OpenSans-Regular.ttf);
+}
+
+/* Navigation bar */
+.fixed-navbar {
+    background-color: #ffffff;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.fixed-navbar a {
+    font-family: mrsSheppards;
+    float: left;
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.fixed-navbar a.site-name {
+    font-size: 60px;
+}
+
+.fixed-navbar a.post-a-message {
+    font-size: 60px;
+    float: right;
+    padding-right: 40px;
+}
+
+.fixed-navbar a:hover {
+    background: #000000 ;
+    color: #ffffff;
+}
+
+.container {
+  margin-top: 109px;
+  font-family: openSans;
+  padding: 20px;
+}
+
+.container h2 {
+  font-family: mrsSheppards;
+  font-size: 40px;
+  text-align: center;
+}
+
+.message-table {
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  table-layout: auto;
+}
+
+.message-table th, td {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+
+}
+
+.message-table th {
+  font-size: 20px;
+}
+
+.message-table td {
+  text-align: left;
+  font-size: 15px;
+
+}
+
+.message-table td.message-date {
+  text-align: center;
+  white-space: nowrap;
+  width: 25%;
+}
+
+.message-table td.message-posterName {
+  text-align: center;
+  white-space: nowrap;
+  width: 25%;
+}
+
+.message-table td.message-message {
+  width: 50%;
+}

@@ -5,33 +5,32 @@
     <meta charset="UTF-8"/>
     <title>Guestbook</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" th:href="@{/css/layout.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" /> 
 </head>
 
 <body>
 <div class="fixed-navbar">
     <nav>
-        <div class="site-name"><a href="/">Guestbook</a></div>
-        <div class="post-a-message">
-            <a href="/post">Post a Message</a>
-        </div>
+        <a href="/" class="site-name">Guestbook</a>
+        <a href="/post" class="post-a-message">Post a Message</a>
     </nav>
 </div>
-<div class="message-container">
+
+<div class="container">
     <div class="header">
         <h2>Messages</h2>
     </div>
     <div class="messages">
         <table class="message-table">
             <tr class="message-headers">
-                <th>Date</th>
-                <th>Name</th>
-                <th>Message</th>
+                <th class="date">Date</th>
+                <th class="name">Name</th>
+                <th class="message-header">Message</th>
             </tr>
             <tr th:each="message : ${messages}" class="message">
-                <td th:text="${message.postDate}" class="message-date"></td>
-                <td th:text="${message.posterName}" class="message-posterName"></td>
-                <td th:text="${message.posterMessage}" class="message-message"></td>
+                <td th:text="${message.postDate}" class="message-date">12/12/1234 12:12</td>
+                <td th:text="${message.posterName}" class="message-posterName">Chris</td>
+                <td th:text="${message.posterMessage}" class="message-message">HI How are you?</td>
             </tr>
         </table>
     </div>

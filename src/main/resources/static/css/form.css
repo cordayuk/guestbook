@@ -1,0 +1,66 @@
+@font-face {
+  font-family: openSans;
+  src: url(fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: mrsSheppards;
+  src: url(fonts/MrsSheppards-Regular.ttf);
+}
+
+input[type=text], textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  font-size: 20px;
+  font-family: openSans;
+}
+
+label {
+  display: inline-block;
+  padding: 12px 12px 12px 0;
+  float: right;
+  font-family: openSans;
+  font-size: 20px
+}
+
+.col-25 {
+  float: left;
+  width: 35%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 35%;
+  margin-top: 6px;
+}
+
+textarea {
+  height: 175px;
+}
+
+
+
+input[type=submit] {
+  width: 35%;
+  font-family: mrsSheppards;
+  font-size: 40px;
+  margin-left: 35%;
+  margin-top: 10px;
+  padding: 12px 20px;
+  cursor: pointer;
+  background: #000000 ;
+  color: #ffffff;
+  border: none;
+  border-radius: 100%;
+}
+
+input[type=submit]:hover {
+  background: #ffffff ;
+  color: #000000;
+  border: 2px solid black;
+}
